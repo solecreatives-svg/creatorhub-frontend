@@ -19,13 +19,13 @@ export function GlareFeatureGrid() {
       <div className="absolute bottom-0 -right-20 w-[600px] h-[600px] bg-brand-400/10 rounded-full blur-[160px] mix-blend-screen pointer-events-none" />
 
       <div className="max-w-2xl mx-auto text-center mb-14 relative z-10">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Everything runs in real time.</h2>
-        <p className="mt-3 text-white/50">Earnings, fans, messages, and security — all live on your dashboard.</p>
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-white">Creator tools that run in real time</h2>
+        <p className="mt-3 text-white/50">Track subscription earnings, fan growth, direct messages, and payouts live from one creator dashboard.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto relative z-10">
         {/* Card 1: Earnings area chart */}
-        <GlareCard tiltIntensity={12} className="flex flex-col h-[420px] bg-ink-900/60 border-white/10 p-8">
+        <GlareCard tiltIntensity={12} className="flex flex-col h-[400px] sm:h-[420px] bg-ink-900/60 border-white/10 p-6 sm:p-8">
           <div className="flex justify-between items-start mb-auto">
             <div className="space-y-6">
               <div className="flex items-center gap-2 text-brand-400">
@@ -80,7 +80,7 @@ export function GlareFeatureGrid() {
 
         {/* Card 3: Fan growth bar chart */}
         <GlareCard tiltIntensity={15} glareColor="rgba(14, 165, 233, 0.25)" className="h-[420px] flex flex-col justify-between bg-ink-950/80 border-white/5">
-          <div className="p-8 space-y-6">
+          <div className="p-6 sm:p-8 space-y-6">
             <div className="flex justify-between items-center">
               <Network className="text-brand-400" size={24} />
               <div className="flex gap-1">
@@ -135,7 +135,7 @@ export function GlareFeatureGrid() {
       </div>
 
       <div className="flex items-center justify-center gap-2 mt-10 text-white/40 text-sm relative z-10">
-        <Sparkles size={14} className="text-brand-400" /> Hover a card — it tilts toward your cursor.
+        <Sparkles size={14} className="text-brand-400" /> Hover a card to see it tilt toward your cursor.
       </div>
     </section>
   )

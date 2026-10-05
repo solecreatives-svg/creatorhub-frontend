@@ -166,10 +166,10 @@ export function CinematicFooter() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-20 flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-6">
+        <div className="relative z-10 mx-auto mt-28 sm:mt-20 mb-10 flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-6">
           <h2
             ref={headingRef}
-            className="footer-text-glow mb-10 text-center text-4xl font-black tracking-tighter md:text-7xl"
+            className="footer-text-glow mb-8 sm:mb-10 text-center text-3xl sm:text-4xl font-black tracking-tighter md:text-7xl"
           >
             Ready to start earning?
           </h2>
@@ -179,7 +179,7 @@ export function CinematicFooter() {
               <MagneticButton
                 as={Link}
                 to="/signup"
-                className="footer-glass-pill group flex items-center gap-3 rounded-full px-10 py-5 text-sm font-bold text-white md:text-base"
+                className="footer-glass-pill group flex items-center gap-3 rounded-full px-8 sm:px-10 py-4 sm:py-5 text-sm font-bold text-white md:text-base"
               >
                 Become a creator
               </MagneticButton>
@@ -187,7 +187,7 @@ export function CinematicFooter() {
               <MagneticButton
                 as={Link}
                 to="/explore"
-                className="footer-glass-pill group flex items-center gap-3 rounded-full px-10 py-5 text-sm font-bold text-white md:text-base"
+                className="footer-glass-pill group flex items-center gap-3 rounded-full px-8 sm:px-10 py-4 sm:py-5 text-sm font-bold text-white md:text-base"
               >
                 Explore creators
               </MagneticButton>

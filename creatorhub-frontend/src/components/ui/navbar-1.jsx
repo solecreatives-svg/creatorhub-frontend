@@ -122,8 +122,13 @@ export function Navbar1() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 exit={{ opacity: 0, y: 20 }}
-                className="pt-6"
+                className="pt-6 space-y-3"
               >
+                {!isAuthenticated && (
+                  <NavLink to="/login" onClick={toggleMenu} className="block text-center text-base text-white font-medium py-3 rounded-full border border-white/15">
+                    Log in
+                  </NavLink>
+                )}
                 <button
                   onClick={() => {
                     toggleMenu()

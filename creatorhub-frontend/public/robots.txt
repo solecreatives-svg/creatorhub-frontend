@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /home
+Disallow: /dashboard
+Disallow: /messages
+Disallow: /settings
+Disallow: /wallet
+
+Sitemap: https://creatorhub-frontend-tau.vercel.app/sitemap.xml

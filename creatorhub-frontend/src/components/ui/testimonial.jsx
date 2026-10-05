@@ -37,10 +37,10 @@ export default function ClientFeedback() {
   const testimonialRef = useRef(null)
 
   return (
-    <main className="w-full bg-ink-900">
-      <section className="relative h-full container text-white mx-auto rounded-lg py-14 bg-ink-900" ref={testimonialRef}>
+    <div className="w-full bg-ink-900">
+      <section className="relative h-full container text-white mx-auto rounded-lg py-12 sm:py-14 bg-ink-900" ref={testimonialRef}>
         <article className="max-w-screen-md mx-auto text-center space-y-2">
-          <TimelineContent as="h1" className="xl:text-4xl text-3xl font-medium text-white" animationNum={0} customVariants={revealVariants} timelineRef={testimonialRef}>
+          <TimelineContent as="h2" className="xl:text-4xl text-2xl sm:text-3xl font-medium text-white px-4" animationNum={0} customVariants={revealVariants} timelineRef={testimonialRef}>
             Trusted by creators building real income
           </TimelineContent>
           <TimelineContent as="p" className="mx-auto text-white/50" animationNum={1} customVariants={revealVariants} timelineRef={testimonialRef}>
@@ -138,6 +138,6 @@ export default function ClientFeedback() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

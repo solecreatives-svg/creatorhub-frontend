@@ -57,8 +57,7 @@ const DEFAULT_CREATORS = [
 // the centre panel faces the viewer flat, each neighbour is rotated a little
 // further away in 3D and pushed back, so the strip reads as one continuous
 // curved surface rather than separate floating cards.
-const CARD_W = 300 // px
-const SLOT_STYLES = {
+const SLOT_STYLES_FN = (CARD_W) => ({
   '-3': { x: -3 * CARD_W, rotateY: 42, z: -260, opacity: 0, brightness: 0.25 },
   '-2': { x: -2 * CARD_W, rotateY: 34, z: -160, opacity: 1, brightness: 0.35 },
   '-1': { x: -1 * CARD_W, rotateY: 22, z: -70, opacity: 1, brightness: 0.55 },
@@ -66,7 +65,7 @@ const SLOT_STYLES = {
   1: { x: 1 * CARD_W, rotateY: -22, z: -70, opacity: 1, brightness: 0.55 },
   2: { x: 2 * CARD_W, rotateY: -34, z: -160, opacity: 1, brightness: 0.35 },
   3: { x: 3 * CARD_W, rotateY: -42, z: -260, opacity: 0, brightness: 0.25 },
-}
+})
 
 /**
  * Horizontal drag/auto-advancing creator carousel: a curved strip of panels
@@ -76,7 +75,16 @@ const SLOT_STYLES = {
 export function CreatorCarousel({ creators = DEFAULT_CREATORS, autoPlayMs = 3000 }) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
+  const [cardW, setCardW] = useState(300)
   const count = creators.length
+
+  useEffect(() => {
+    const update = () => setCardW(window.innerWidth < 640 ? 200 : 300)
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+  const SLOT_STYLES = SLOT_STYLES_FN(cardW)
 
   const go = useCallback((dir) => setIndex((i) => (((i + dir) % count) + count) % count), [count])
 
@@ -96,7 +104,7 @@ export function CreatorCarousel({ creators = DEFAULT_CREATORS, autoPlayMs = 3000
   return (
     <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
     <div
-      className="relative w-full h-[460px] sm:h-[520px] select-none overflow-hidden"
+      className="relative w-full h-[400px] sm:h-[520px] select-none overflow-hidden"
       style={{ perspective: 1400 }}
     >
       <div className="relative w-full h-full flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
@@ -109,7 +117,7 @@ export function CreatorCarousel({ creators = DEFAULT_CREATORS, autoPlayMs = 3000
           return (
             <motion.div
               key={creator.name}
-              className="absolute w-[240px] sm:w-[300px] h-[400px] sm:h-[460px] cursor-grab active:cursor-grabbing"
+              className="absolute w-[200px] sm:w-[300px] h-[340px] sm:h-[460px] cursor-grab active:cursor-grabbing"
               style={{ zIndex: 10 - Math.abs(diff), transformStyle: 'preserve-3d' }}
               animate={{ x: style.x, rotateY: style.rotateY, z: style.z, opacity: style.opacity }}
               transition={{ type: 'spring', stiffness: 220, damping: 26 }}
@@ -129,7 +137,7 @@ export function CreatorCarousel({ creators = DEFAULT_CREATORS, autoPlayMs = 3000
               <div className="relative w-full h-full overflow-hidden border border-white/10 bg-ink-900">
                 <img
                   src={creator.image}
-                  alt={creator.name}
+                  alt={`${creator.name}, ${creator.role} on CreatorHub`}
                   className="w-full h-full object-cover"
                   style={{ filter: `brightness(${style.brightness})` }}
                   draggable={false}

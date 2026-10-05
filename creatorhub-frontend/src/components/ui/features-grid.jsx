@@ -101,13 +101,13 @@ export function FeaturesGrid() {
                 </span>
                 <span className="text-white/40 text-xs">Sat 22 Feb</span>
               </div>
-              <div className="rounded-xl bg-ink-950 mt-1.5 w-3/5 border border-white/10 p-3 text-xs text-white">
+              <div className="rounded-xl bg-ink-950 mt-1.5 w-4/5 sm:w-3/5 border border-white/10 p-3 text-xs text-white">
                 Hey! Love the new post, when's the next drop?
               </div>
             </div>
 
             <div>
-              <div className="rounded-xl mb-1 ml-auto w-3/5 bg-brand-600 p-3 text-xs text-white">
+              <div className="rounded-xl mb-1 ml-auto w-4/5 sm:w-3/5 bg-brand-600 p-3 text-xs text-white">
                 Thank you! New set goes live Friday for subscribers 🎉
               </div>
               <span className="text-white/40 block text-right text-xs">Now</span>
@@ -116,13 +116,13 @@ export function FeaturesGrid() {
         </div>
 
         {/* Stat */}
-        <div className="col-span-full border-y border-white/10 p-12">
-          <p className="text-center text-4xl font-semibold lg:text-7xl text-white">99.99% Uptime</p>
+        <div className="col-span-full border-y border-white/10 p-8 sm:p-12">
+          <p className="text-center text-3xl sm:text-4xl font-semibold lg:text-7xl text-white">99.99% Uptime</p>
         </div>
 
         {/* Earnings chart */}
         <div className="relative col-span-full bg-ink-950">
-          <div className="relative z-10 max-w-lg px-6 pr-12 pt-6 md:px-12 md:pt-12">
+          <div className="relative z-10 max-w-lg px-6 pt-6 md:px-12 md:pt-12">
             <span className="text-white/50 flex items-center gap-2">
               <Activity className="size-4" />
               Earnings, live
